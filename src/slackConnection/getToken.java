@@ -16,7 +16,7 @@ import org.apache.http.message.BasicNameValuePair;
 
 public class getToken {
 
-		private final String USER_AGENT = "Mozilla/5.0";
+		private final String USER_AGENT = "Mozilla/5.";
 
 		public static void main(String[] args) throws Exception {
 
