@@ -17,6 +17,10 @@ import org.apache.http.message.BasicNameValuePair;
 public class getToken {
 
 		private final String USER_AGENT = "Mozilla/5.0";
+		private final String tokenBot = "xoxb-50461497911-jf2NGyhLMyNFzHge5QIrO72l";
+		
+		private final String coreURL = "https://slack.com/api/rtm.start?token=";
+		https://slack.com/api/rtm.start?token=xoxp-3107715565-3135445705-48032657510-75bece3a0b&pretty=1
 
 		public static void main(String[] args) throws Exception {
 
@@ -29,7 +33,37 @@ public class getToken {
 			http.sendPost();
 
 		}
+		
+		private void sendGet() throws Exception {
 
+			URL obj = new URL(coreURL + tokenBot);
+			HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+
+			// optional default is GET
+			con.setRequestMethod("GET");
+
+			//add request header
+			con.setRequestProperty("User-Agent", USER_AGENT);
+
+			int responseCode = con.getResponseCode();
+			System.out.println("\nSending 'GET' request to URL : " + url);
+			System.out.println("Response Code : " + responseCode);
+
+			BufferedReader in = new BufferedReader(
+			        new InputStreamReader(con.getInputStream()));
+			String inputLine;
+			StringBuffer response = new StringBuffer();
+
+			while ((inputLine = in.readLine()) != null) {
+				response.append(inputLine);
+			}
+			in.close();
+
+			//print result
+			System.out.println(response.toString());
+
+		}
+/*
 		// HTTP POST request
 		private void sendPost() throws Exception {
 
@@ -67,6 +101,6 @@ public class getToken {
 
 			System.out.println(result.toString());
 
-		}
+		}*/
 
 	}
