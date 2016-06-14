@@ -2,21 +2,10 @@ package slackConnection;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.List;
 
-import org.apache.http.HttpResponse;
-import org.apache.http.NameValuePair;
-import org.apache.http.client.HttpClient;
-import HTTPClient.*;
+//import HTTPClient.*;
 import java.net.URL;
-import org.apache.http.client.entity.UrlEncodedFormEntity;
-import org.apache.http.client.methods.HttpGet;
-import org.apache.http.client.methods.HttpPost;
-import org.apache.http.impl.client.DefaultHttpClient;
-import org.apache.http.message.BasicNameValuePair;
 import java.net.HttpURLConnection;
-import javax.net.ssl.HttpsURLConnection;
 
 
 public class getToken {
@@ -32,10 +21,11 @@ public static void main(String[] args) throws Exception {
 		public void sendGet() throws Exception {
 			final String USER_AGENT = "Mozilla/5.0";
 			final String tokenBot = "";
-			final String channel = "zettamix";
-			final String message = "My message";
+			final String channel = "anime_lovers";
+			//zettamix U033ZD3LR - anime_lovers G0F0QGSN5
+			final String message = "shi";
 			final boolean asUser = true;
-			final String coreURL = "https://slack.com/api/chat.postMessage?token="+tokenBot+"&channel"+channel+"&text"+message+"as_user"+asUser;
+			final String coreURL = "https://slack.com/api/chat.postMessage?token="+tokenBot+"&channel="+channel+"&text="+message+"&as_user="+asUser;
 
 			URL obj = new URL(coreURL + tokenBot);
 			HttpURLConnection con = (HttpURLConnection) obj.openConnection();
