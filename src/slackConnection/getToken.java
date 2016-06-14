@@ -8,35 +8,34 @@ import java.util.List;
 import org.apache.http.HttpResponse;
 import org.apache.http.NameValuePair;
 import org.apache.http.client.HttpClient;
+import HTTPClient.*;
+import java.net.URL;
 import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.message.BasicNameValuePair;
+import java.net.HttpURLConnection;
+import javax.net.ssl.HttpsURLConnection;
+
 
 public class getToken {
-
-		private final String USER_AGENT = "Mozilla/5.0";
-		private final String tokenBot = "";
-		private final String channel = "zettamix";
-		private final String message = "My message";
-		private final boolean asUser;
-		private final String coreURL = "https://slack.com/api/chat.postMessage?token="+tokenbot+"&channel"+channel+"&text"+message+"as_user"+asUser;
-		https://slack.com/api/rtm.start?token=xoxp-3107715565-3135445705-48032657510-75bece3a0b&pretty=1
-
-		public static void main(String[] args) throws Exception {
-
-			HttpClientExample http = new HttpClientExample();
+	
+public static void main(String[] args) throws Exception {
+			getToken http = new getToken();
 
 			System.out.println("Testing 1 - Send Http GET request");
 			http.sendGet();
 
-			//System.out.println("\nTesting 2 - Send Http POST request");
-			//http.sendPost();
-
-		}
+}
 		
-		private void sendGet() throws Exception {
+		public void sendGet() throws Exception {
+			final String USER_AGENT = "Mozilla/5.0";
+			final String tokenBot = "";
+			final String channel = "zettamix";
+			final String message = "My message";
+			final boolean asUser = true;
+			final String coreURL = "https://slack.com/api/chat.postMessage?token="+tokenBot+"&channel"+channel+"&text"+message+"as_user"+asUser;
 
 			URL obj = new URL(coreURL + tokenBot);
 			HttpURLConnection con = (HttpURLConnection) obj.openConnection();
@@ -65,6 +64,7 @@ public class getToken {
 			System.out.println(response.toString());
 
 		}
+}
 /*
 		// HTTP POST request
 		private void sendPost() throws Exception {
@@ -105,4 +105,3 @@ public class getToken {
 
 		}*/
 
-	}
