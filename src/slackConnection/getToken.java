@@ -17,9 +17,11 @@ import org.apache.http.message.BasicNameValuePair;
 public class getToken {
 
 		private final String USER_AGENT = "Mozilla/5.0";
-		private final String tokenBot = "xoxb-50461497911-jf2NGyhLMyNFzHge5QIrO72l";
-		
-		private final String coreURL = "https://slack.com/api/rtm.start?token=";
+		private final String tokenBot = "";
+		private final String channel = "zettamix";
+		private final String message = "My message";
+		private final boolean asUser;
+		private final String coreURL = "https://slack.com/api/chat.postMessage?token="+tokenbot+"&channel"+channel+"&text"+message+"as_user"+asUser;
 		https://slack.com/api/rtm.start?token=xoxp-3107715565-3135445705-48032657510-75bece3a0b&pretty=1
 
 		public static void main(String[] args) throws Exception {
@@ -29,8 +31,8 @@ public class getToken {
 			System.out.println("Testing 1 - Send Http GET request");
 			http.sendGet();
 
-			System.out.println("\nTesting 2 - Send Http POST request");
-			http.sendPost();
+			//System.out.println("\nTesting 2 - Send Http POST request");
+			//http.sendPost();
 
 		}
 		
@@ -46,7 +48,7 @@ public class getToken {
 			con.setRequestProperty("User-Agent", USER_AGENT);
 
 			int responseCode = con.getResponseCode();
-			System.out.println("\nSending 'GET' request to URL : " + url);
+			System.out.println("\nSending 'GET' request to URL : " + coreURL);
 			System.out.println("Response Code : " + responseCode);
 
 			BufferedReader in = new BufferedReader(
